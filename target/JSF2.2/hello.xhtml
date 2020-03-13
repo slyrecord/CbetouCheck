@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>JSF 2.0 Hello World</title>
+</h:head>
+<h:body>
+	<h3>JSF 2.0 Hello World Example - hello.xhtml</h3>
+	<h:form id="form1">
+		<h:inputText value="#{userBean.name}"></h:inputText>
+		<h:commandButton value="Welcome Me" action="welcome"></h:commandButton>
+
+		<p:dataTable
+				id="list"
+				value="#{userBean.users}"
+				var="user"
+				paginator="true"
+				rows="10"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15"
+				rowKey="#{user.userId}"
+				selection="#{userBean.selectedUser}"
+				selectionMode="single">
+
+			<f:facet name="header">
+				User List
+			</f:facet>
+
+			<p:ajax event="rowSelect" listener="#{userBean.onRowSelect}" update=":form1"/>
+			<p:ajax event="rowUnselect" listener="#{userBean.onRowUnselect}" update=":form1"/>
+
+			<p:column sortBy="userId" headerText="Id">
+				<h:outputText value="#{user.userId}"/>
+			</p:column>
+
+			<p:column sortBy="userName" headerText="Ф.И.О">
+				<h:outputText value="#{user.userName}"/>
+			</p:column>
+
+			<p:column sortBy="birthDate" headerText="Дата рождения">
+				<h:outputText value="#{user.birthDate}"/>
+			</p:column>
+
+			<p:column sortBy="userGender" headerText="Пол">
+				<h:outputText value="#{user.userGender}"/>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

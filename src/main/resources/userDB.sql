@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS persons;
+
+USE persons;
+
+DROP TABLE IF EXISTS user;
+
+CREATE TABLE IF NOT EXISTS user (
+user_id INT NOT NULL AUTO_INCREMENT,
+user_name VARCHAR(100) NOT NULL,
+birth_day DATE NOT NULL,
+user_gender VARCHAR(10) NOT NULL,
+PRIMARY KEY ('user_id')
+);

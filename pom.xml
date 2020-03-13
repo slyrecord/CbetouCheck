@@ -23,6 +23,13 @@
 			<version>2.2.12</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>7.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -41,6 +48,20 @@
 			<version>1.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.10</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -52,8 +73,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>8</source>
+					<target>8</target>
 				</configuration>
 			</plugin>
 		</plugins>
